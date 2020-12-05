@@ -1,15 +1,22 @@
 public class ListNode {
     private int number;
+    private boolean _isInserted;
     private ListNode next;
 
     public ListNode(){
         number = -1;
+        _isInserted = false;
         next = null;
     }
 
     public ListNode(int _number){
         setNumber(_number);
+        _isInserted = true;
         next = null;
+    }
+
+    public boolean isDataInserted(){
+        return _isInserted;
     }
 
     public ListNode getListNode(ListNode head, int position){
@@ -77,6 +84,9 @@ public class ListNode {
         ListNode currentNode = head;
         int position = 1;
         while(currentNode != null){
+            if(currentNode._isInserted == false){
+                break;
+            }
             if(currentNode.getNumber() == nodeTocheck.getNumber()){
                 return true;
             }
@@ -93,6 +103,7 @@ public class ListNode {
 
     public void setNumber(int _number){
         number = _number;
+        _isInserted = true;
     }
 
     public ListNode getNext(){
