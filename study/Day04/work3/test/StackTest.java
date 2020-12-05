@@ -26,11 +26,10 @@ class StackTest {
 
     @Test
     void testPop() {
-        assertDoesNotThrow(() -> {
-            int data = stack.pop();
-            while(data != -1){
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            while(true){
+                int data = stack.pop();
                 System.out.println(data);
-                data = stack.pop();
             }
         });
         stack.printCurrentStack();

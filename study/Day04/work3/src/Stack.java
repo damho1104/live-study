@@ -21,7 +21,7 @@ public class Stack {
     {
         if(currentIndex == 0){
             System.out.println("Error: Stack has no data");
-            return -1;
+            throw new IndexOutOfBoundsException();
         }
         return stackData[--currentIndex];
     }
