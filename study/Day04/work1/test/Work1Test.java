@@ -36,8 +36,8 @@ class Work1Test {
     @Test
     void testGetParticipantMap() throws IOException {
         var map = test.getParticipantMap(githubLib, issues);
-        assert map.size() == 1;
-        assert map.containsKey("damho1104");
+        assertEquals(map.size(), 1);
+        assertTrue(map.containsKey("damho1104"));
     }
 
     @Test
@@ -45,12 +45,12 @@ class Work1Test {
         Map<String, Integer> testMap = new HashMap<>();
         test.insertParticipantIntoMap(userID, testMap);
 
-        assert testMap.containsKey(userID);
-        assert (Integer)testMap.get(userID) == 1;
+        assertTrue(testMap.containsKey(userID));
+        assertEquals((Integer)testMap.get(userID), 1);
     }
 
     @Test
     void testGetStringRatePerUserID() {
-        assert "damho1104: 11.11%".equals(test.getStringRatePerUserID(userID, 11.11));
+        assertEquals("damho1104: 11.11%", test.getStringRatePerUserID(userID, 11.11));
     }
 }
